@@ -1,0 +1,25 @@
+{
+    "artboards": [
+        "/src/screens/Login.js",
+        "/src/screens/Home.js"
+    ],
+    "symbols": [
+        "/src/symbols/button11.js",
+        "/src/symbols/button3.js",
+        "/src/symbols/helperTextBox.js",
+        "/src/symbols/helperTextBox1.js"
+    ],
+    "assets": [],
+    "defaultArtboardDirectory": "/src/screens",
+    "defaultSymbolDirectory": "/src/symbols",
+    "defaultAssetDirectory": "/src/assets",
+    "deviceName": "iPhone X",
+    "deviceOrientation": "portrait",
+    "basePath": "/Users/shiv/Desktop/SampleApp",
+    "tempPath": "/var/folders/x2/q8m27hw94cd25hsmyksv7kg00000gp/T/BuilderBPoW5iL",
+    "useStylesheet": true,
+    "rulers": {},
+    "missingFonts": [
+        "Roboto"
+    ]
+}
