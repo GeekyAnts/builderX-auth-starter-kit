@@ -6,22 +6,50 @@ import HelperTextBox from "../symbols/helperTextBox";
 import HelperTextBox1 from "../symbols/helperTextBox1";
 import { View, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { connect } from "react-redux";
-import { authUser } from "../actions";
+// import { authUser } from "../actions";
+import { userActions } from "../_actions";
 
 class Login extends Component {
   constructor(props) {
     super(props);
+
+    // reset login status
+    this.props.dispatch(userActions.logout());
+
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      submitted: false
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   onSubmit() {
     this.props.authUser(this.state.username, this.state.password);
   }
 
+  handleChange(e) {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
+    this.setState({ submitted: true });
+    const { username, password } = this.state;
+    const { dispatch } = this.props;
+    if (username && password) {
+      dispatch(userActions.login(username, password, this.props.navigation));
+    }
+  }
+
   render() {
     console.log(this.props.data, "test");
+    const { loggingIn } = this.props;
+    const { username, password, submitted } = this.state;
+
     return (
       <View style={styles.root}>
         <Image style={styles.image} source={require("../assets/logo.png")} />
@@ -37,26 +65,38 @@ class Login extends Component {
           <Button11
             style={styles.button11}
             buttonContent="LOGIN"
-            onPress={() => {
-              this.onSubmit();
-              this.props.navigation.push("Home");
-            }}
+            onPress={
+              this.handleSubmit
+              //   () => {
+              //   this.onSubmit();
+              //   this.props.navigation.push("Home");
+              // }
+            }
           />
         </View>
       </View>
     );
   }
 }
-function bindAction(dispatch) {
+// function bindAction(dispatch) {
+//   return {
+//     authUser: (url, abc) => dispatch(authUser(url, abc))
+//   };
+// }
+
+// const mapStateToProps = state => ({
+//   data: state
+// });
+
+function mapStateToProps(state) {
+  const { loggingIn } = state.authentication;
   return {
-    authUser: (url, abc) => dispatch(authUser(url, abc))
+    loggingIn
   };
 }
 
-const mapStateToProps = state => ({
-  data: state
-});
 export default connect(mapStateToProps, bindAction)(Login);
+
 const styles = StyleSheet.create({
   root: {
     backgroundColor: "white",

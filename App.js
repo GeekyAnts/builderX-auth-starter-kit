@@ -40,10 +40,6 @@ export default class App extends React.Component {
       fontLoaded: false,
       store: configureStore(() => this.setState({ isLoading: false }))
     };
-    YellowBox.ignoreWarnings([
-      "Warning: componentWillMount is deprecated",
-      "Warning: componentWillReceiveProps is deprecated"
-    ]);
   }
   async componentDidMount() {
     await Font.loadAsync({
