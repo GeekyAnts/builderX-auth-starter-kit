@@ -1,6 +1,14 @@
-import { userConstants } from '../_constants';
+import { AsyncStorage } from "react-native";
+import { userConstants } from "../_constants";
 
-let user = JSON.parse(localStorage.getItem('user'));
+// let user = JSON.parse(AsyncStorage.getItem("user"));
+let user = {
+  id: 1,
+  username: "Test",
+  password: "test",
+  firstName: "Test",
+  lastName: "User"
+};
 const initialState = user ? { loggedIn: true, user } : {};
 
 export function authentication(state = initialState, action) {
@@ -20,6 +28,6 @@ export function authentication(state = initialState, action) {
     case userConstants.LOGOUT:
       return {};
     default:
-      return state
+      return state;
   }
 }

@@ -23,12 +23,14 @@
     "@builderx/react-native-swiper": "^0.1.5",
     "@builderx/tab-view": "^0.1.5",
     "expo": "26.0.0",
+    "history": "^4.7.2",
     "lodash": "^4.17.4",
     "react": "16.3.0-alpha.1",
     "react-native": "0.54.0",
     "react-navigation": "1.2.1",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0"
   }
 }

@@ -4,7 +4,7 @@ import { Font } from "expo";
 import { Provider } from "react-redux";
 import Login from "./src/screens/Login";
 
-import configureStore from "./src/configureStore";
+import { store } from "./src/_helpers";
 
 import Home from "./src/screens/Home";
 import { StackNavigator, DrawerNavigator } from "react-navigation";
@@ -37,8 +37,7 @@ export default class App extends React.Component {
     super();
     this.state = {
       isLoading: false,
-      fontLoaded: false,
-      store: configureStore(() => this.setState({ isLoading: false }))
+      fontLoaded: false
     };
   }
   async componentDidMount() {
@@ -53,7 +52,7 @@ export default class App extends React.Component {
   render() {
     console.disableYellowBox = true;
     return this.state.fontLoaded || this.state.isLoading ? (
-      <Provider store={this.state.store}>
+      <Provider store={store}>
         <StackNavigation />
       </Provider>
     ) : (

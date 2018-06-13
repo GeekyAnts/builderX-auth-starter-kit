@@ -4,7 +4,13 @@ import Button11 from "../symbols/button11";
 
 import HelperTextBox from "../symbols/helperTextBox";
 import HelperTextBox1 from "../symbols/helperTextBox1";
-import { View, StyleSheet, TouchableOpacity, Image } from "react-native";
+import {
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  ScrollView
+} from "react-native";
 import { connect } from "react-redux";
 // import { authUser } from "../actions";
 import { userActions } from "../_actions";
@@ -25,13 +31,12 @@ class Login extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  onSubmit() {
-    this.props.authUser(this.state.username, this.state.password);
-  }
+  // onSubmit() {
+  //   this.props.authUser(this.state.username, this.state.password);
+  // }
 
-  handleChange(e) {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
+  handleChange(e, name) {
+    this.setState({ [name]: e });
   }
 
   handleSubmit(e) {
@@ -46,21 +51,23 @@ class Login extends Component {
   }
 
   render() {
-    console.log(this.props.data, "test");
     const { loggingIn } = this.props;
     const { username, password, submitted } = this.state;
 
     return (
       <View style={styles.root}>
         <Image style={styles.image} source={require("../assets/logo.png")} />
-        <View style={styles.rect}>
+        <ScrollView
+          style={styles.rect}
+          contentContainerStyle={styles.rectScroll}
+        >
           <HelperTextBox
             style={styles.helperTextBox}
-            onChangeText={e => this.setState({ username: e })}
+            onChangeText={e => this.handleChange(e, "username")}
           />
           <HelperTextBox1
             style={styles.helperTextBox1}
-            onChangeText={e => this.setState({ password: e })}
+            onChangeText={e => this.handleChange(e, "password")}
           />
           <Button11
             style={styles.button11}
@@ -73,7 +80,7 @@ class Login extends Component {
               // }
             }
           />
-        </View>
+        </ScrollView>
       </View>
     );
   }
@@ -95,7 +102,7 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, bindAction)(Login);
+export default connect(mapStateToProps)(Login);
 
 const styles = StyleSheet.create({
   root: {
@@ -106,7 +113,10 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(255,255,255,1)",
     flex: 1,
     padding: 20,
-    opacity: 1,
+    opacity: 1
+  },
+  rectScroll: {
+    flex: 1,
     justifyContent: "center",
     alignItems: "center"
   },
