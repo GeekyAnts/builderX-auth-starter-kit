@@ -1,0 +1,113 @@
+{
+    "artboards": [
+        "/src/screens/SignUp.js",
+        "/src/screens/Login.js",
+        "/src/screens/Home.js"
+    ],
+    "symbols": [
+        "/src/symbols/UntitledSymbol.js",
+        "/src/symbols/UntitledSymbol1.js",
+        "/src/symbols/Password.js",
+        "/src/symbols/Signin.js",
+        "/src/symbols/Username.js",
+        "/src/symbols/Login.js",
+        "/src/symbols/Buttonlogin.js",
+        "/src/symbols/card2.js",
+        "/src/symbols/card13.js",
+        "/src/symbols/card11.js",
+        "/src/symbols/card4.js",
+        "/src/symbols/card1.js",
+        "/src/symbols/card12.js",
+        "/src/symbols/button10.js"
+    ],
+    "assets": [],
+    "defaultArtboardDirectory": "/src/screens",
+    "defaultSymbolDirectory": "/src/symbols",
+    "defaultAssetDirectory": "/src/assets",
+    "deviceName": "iPhone X",
+    "deviceOrientation": "portrait",
+    "basePath": "/Users/shiv/Downloads/bit",
+    "tempPath": "/var/folders/lw/dxgzdq7s1db67t5_jv51fjtc0000gn/T/BuilderOL4wtDW",
+    "useStylesheet": true,
+    "rulers": {
+        "/src/screens/SignUp.js": [
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 34.9904474853696,
+                    "y": 130.97463887389762
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 80.19900669556307,
+                    "y": 118.64503181657213
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 846.2579160266398,
+                    "y": -100
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 324.16971208403754,
+                    "y": 454.39076039441727
+                },
+                "horizontal": true
+            }
+        ],
+        "/src/screens/Login.js": [
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 75.03656227406884,
+                    "y": 237.14430196408722
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 33.600442928532985,
+                    "y": -100
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -427.44481490335704,
+                    "y": 382.105170976901
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -742.5,
+                    "y": 439.5993280835727
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -418.73862671415793,
+                    "y": 367.41347840762745
+                },
+                "horizontal": true
+            }
+        ]
+    },
+    "missingFonts": [
+        "Roboto"
+    ]
+}
