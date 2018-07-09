@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Image, StyleSheet } from "react-native";
+import { View, Image, Text, StyleSheet } from "react-native";
 
 export default class card1 extends Component {
   // Only for displaying symbol in BuilderX.
@@ -14,18 +14,24 @@ export default class card1 extends Component {
       <View style={[styles.root, this.props.style]}>
         <Image
           style={styles.cardItemImagePlace}
-          source={require("../assets/cardImage7.jpg")}
+          source={require("../assets/cardImage10.jpg")}
         />
+        <View style={styles.body}>
+          <Text style={styles.bodyText}>
+            BuilderX is a screen design tool which codes React Native for you.
+          </Text>
+        </View>
       </View>
     );
   }
 }
 const styles = StyleSheet.create({
   root: {
+    marginBottom: 10,
     flexWrap: "nowrap",
     backgroundColor: "#FFF",
     borderWidth: 1,
-    borderColor: "#CCC",
+    borderColor: "rgba(179,79,197,1)",
     borderRadius: 2,
     shadowColor: "#000",
     shadowOffset: {
@@ -37,8 +43,15 @@ const styles = StyleSheet.create({
     overflow: "hidden"
   },
   cardItemImagePlace: {
-    flex: 1,
-    backgroundColor: "#ccc",
-    minHeight: 210
+    backgroundColor: "rgba(179,79,197,0.3)",
+    height: 210
+  },
+  body: {
+    padding: 16
+  },
+  bodyText: {
+    fontSize: 14,
+    lineHeight: 20,
+    color: "#424242"
   }
 });

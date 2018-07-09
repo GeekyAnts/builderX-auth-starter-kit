@@ -3,14 +3,7 @@ import React, { Component } from "react";
 import Username from "../symbols/Username";
 import Password from "../symbols/Password";
 import Buttonlogin from "../symbols/Buttonlogin";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ImageBackground,
-  TouchableOpacity,
-  Alert
-} from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
 
 import { connect } from "react-redux";
 import { userActions } from "../_actions";
@@ -67,11 +60,7 @@ class Login extends Component {
     const { username, password, submitted } = this.state;
     return (
       <View style={styles.root}>
-        <ImageBackground
-          style={styles.bg}
-          source={require("../assets/Gradient_svWK4s9.png")} /*gradient: {"activeIndex":2,"from":{"x":0.5,"y":0},"gradientType":"LinearGradient","shouldSmoothenOpacity":false,"stops":[{"offset":0,"stopColor":"rgba(158,74,207,1)","style":{}},{"offset":1,"stopColor":"rgba(197,89,161,1)","style":{}}],"style":{},"to":{"x":0.5,"y":1}}*/
-          /*locked*/
-        />
+        <View style={styles.bg} />
         <View
           style={{
             top: 0,
@@ -134,7 +123,7 @@ const styles = StyleSheet.create({
     left: "0.00%",
     height: "100.00%",
     width: "100.00%",
-    backgroundColor: "transparent"
+    backgroundColor: "rgba(179,79,197,1)"
   },
 
   login: {

@@ -12,13 +12,8 @@
         "/src/symbols/Username.js",
         "/src/symbols/Login.js",
         "/src/symbols/Buttonlogin.js",
-        "/src/symbols/card2.js",
-        "/src/symbols/card13.js",
-        "/src/symbols/card11.js",
-        "/src/symbols/card4.js",
-        "/src/symbols/card1.js",
-        "/src/symbols/card12.js",
-        "/src/symbols/button10.js"
+        "/src/symbols/button10.js",
+        "/src/symbols/card1.js"
     ],
     "assets": [],
     "defaultArtboardDirectory": "/src/screens",

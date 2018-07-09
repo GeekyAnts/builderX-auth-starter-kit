@@ -25,6 +25,8 @@ export default class Username extends Component {
             }
           />
           <TextInput
+            ref={this.props.ref}
+            clearButtonMode="always"
             style={styles.textInput}
             placeholder={
               this.props.textInput ? this.props.textInput : "Username"

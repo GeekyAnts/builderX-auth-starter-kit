@@ -1,35 +1,19 @@
 import React, { Component } from "react";
 
-import Card12 from "../symbols/card12";
-import Swiper from "@builderx/react-native-swiper";
-
 import Icon from "@builderx/icons";
-import { View, StyleSheet, Text, ImageBackground, Image } from "react-native";
+import Card1 from "../symbols/card1";
+import { View, StyleSheet, Text, ScrollView } from "react-native";
+import { NavigationActions } from "react-navigation";
 
+const resetAction = NavigationActions.reset({
+  index: 0,
+  actions: [NavigationActions.navigate({ routeName: "SignUp" })]
+});
 export default class Untitled3 extends Component {
   render() {
     return (
       <View style={styles.root}>
-        <ImageBackground
-          style={styles.rect}
-          source={require("../assets/Gradient_svWK4s9.png")} /*gradient: {"activeIndex":2,"from":{"x":0.5,"y":0},"gradientType":"LinearGradient","shouldSmoothenOpacity":false,"stops":[{"offset":0,"stopColor":"rgba(130,33,187,1)","style":{}},{"offset":1,"stopColor":"rgba(207,112,176,1)","style":{}}],"style":{},"to":{"x":0.5,"y":1}}*/
-        />
-        <Swiper
-          style={styles.carousel2}
-          dotStyle={{}}
-          activeDotStyle={{}}
-          buttonTextStyle={{}}
-          index={0}
-        >
-          <View style={styles.rect11}>
-            <Image
-              style={styles.image5}
-              source={require("../assets/image3.png")}
-            />
-          </View>
-          <View style={styles.rect12} />
-          <View style={styles.rect13} />
-        </Swiper>
+        <View style={styles.rect} />
         <View style={styles.rect14}>
           <View style={styles.rect15}>
             <View style={styles.rect16} />
@@ -49,7 +33,7 @@ export default class Untitled3 extends Component {
                 name="power"
                 type="MaterialCommunityIcons"
                 onPress={() => {
-                  this.props.navigation.pop();
+                  this.props.navigation.dispatch(resetAction);
                 }}
               />
             </View>
@@ -69,6 +53,18 @@ export default class Untitled3 extends Component {
             <Text style={styles.text2}>Home</Text>
           </View>
         </View>
+        <ScrollView
+          style={styles.scrollArea}
+          horizontal={false}
+          contentContainerStyle={styles.ScrollView1}
+        >
+          <Card1 style={styles.card1} />
+          <Card1 style={styles.card1} />
+          <Card1 style={styles.card1} />
+          <Card1 style={styles.card1} />
+          <Card1 style={styles.card1} />
+          <Card1 style={styles.card1} />
+        </ScrollView>
       </View>
     );
   }
@@ -84,56 +80,9 @@ const styles = StyleSheet.create({
     bottom: 0,
     width: "100%",
     position: "absolute",
-    backgroundColor: "transparent"
+    backgroundColor: "rgba(179,79,197,1)"
   },
-  card122: {
-    top: 531.54,
-    left: 17.5,
-    right: 17.5,
-    height: 155,
-    position: "absolute"
-  },
-  card123: {
-    top: 694,
-    left: 18,
-    right: 18,
-    height: 155,
-    position: "absolute"
-  },
-  carousel2: {
-    top: 105,
-    left: 18,
-    right: 18,
-    height: 260,
-    position: "absolute"
-  },
-  rect11: {
-    flex: 1,
-    backgroundColor: "rgba(255,255,255,1)",
-    opacity: 1
-  },
-  image5: {
-    top: 0,
-    left: 0,
-    right: 0,
-    height: 211,
-    position: "absolute"
-  },
-  rect12: {
-    flex: 1,
-    backgroundColor: "#2196F3"
-  },
-  rect13: {
-    flex: 1,
-    backgroundColor: "#009688"
-  },
-  card124: {
-    top: 369,
-    left: 18,
-    right: 18,
-    height: 155,
-    position: "absolute"
-  },
+
   rect14: {
     top: "4.06%",
     left: 0,
@@ -160,7 +109,7 @@ const styles = StyleSheet.create({
   text2: {
     position: "absolute",
     backgroundColor: "transparent",
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: "Avenir-Heavy",
     letterSpacing: 0.15,
     color: "rgba(255,255,255,1)"
@@ -171,5 +120,20 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
     fontSize: 40
+  },
+  scrollArea: {
+    height: 715,
+    top: 97,
+    left: 0,
+    position: "absolute",
+    right: 0,
+    padding: 10
+  },
+  card1: {
+    width: 359
+  },
+  ScrollView1: {
+    alignItems: "center",
+    justifyContent: "flex-start"
   }
 });

@@ -25,10 +25,12 @@ export default class Password extends Component {
             }
           />
           <TextInput
+            ref={this.props.ref}
             style={styles.textInput}
             placeholder={
               this.props.textInput ? this.props.textInput : "Password"
             }
+            clearButtonMode="always"
             placeholderTextColor="#FFF"
             onChangeText={this.props.onChangeText}
             secureTextEntry={true}

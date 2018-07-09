@@ -28,6 +28,7 @@ export default class UntitledSymbol extends Component {
             secureTextEntry={
               this.props.secureTextEntry ? this.props.secureTextEntry : false
             }
+            clearButtonMode="always"
             onChangeText={this.props.onChangeText}
             onBlur={this.props.onBlur}
             onEndEditing={this.props.onEndEditing}

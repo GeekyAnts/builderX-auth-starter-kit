@@ -10,7 +10,6 @@ import {
   View,
   Text,
   StyleSheet,
-  ImageBackground,
   StatusBar,
   TouchableOpacity
 } from "react-native";
@@ -84,10 +83,7 @@ class SignUp extends Component {
           style={styles.statusBar}
           backgroundColor="rgba(90,17,117,1)"
         />
-        <ImageBackground
-          style={styles.bg}
-          source={require("../assets/Gradient_svWK4s9.png")} /*gradient: {"activeIndex":2,"from":{"x":0.5,"y":0},"gradientType":"LinearGradient","shouldSmoothenOpacity":false,"stops":[{"offset":0,"stopColor":"rgba(130,33,187,1)","style":{}},{"offset":1,"stopColor":"rgba(215,116,183,1)","style":{}}],"style":{},"to":{"x":0.5,"y":1}}*/
-        />
+        <View style={styles.bg} />
         <View
           style={{
             top: 0,
@@ -180,7 +176,7 @@ const styles = StyleSheet.create({
     left: "0.00%",
     height: "37.48%",
     width: "100.00%",
-    backgroundColor: "transparent"
+    backgroundColor: "rgba(179,79,197,1)"
   },
 
   header: {
