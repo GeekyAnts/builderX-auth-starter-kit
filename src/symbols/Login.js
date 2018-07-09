@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     backgroundColor: "transparent",
     fontSize: 18,
-    fontFamily: "Avenir-Medium",
     letterSpacing: -0.25,
     color: "rgba(196,113,244,1)"
   }

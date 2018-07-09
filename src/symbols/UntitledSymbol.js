@@ -70,7 +70,6 @@ const styles = StyleSheet.create({
   textInput: {
     backgroundColor: "transparent",
     fontSize: 16,
-    fontFamily: "Avenir-Light",
     letterSpacing: -0.22,
     color: "rgba(0,0,0,1)",
     height: 50,

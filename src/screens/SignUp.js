@@ -193,7 +193,6 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
     fontSize: 18,
-    fontFamily: "Avenir-Heavy",
     letterSpacing: 0.15
   },
 

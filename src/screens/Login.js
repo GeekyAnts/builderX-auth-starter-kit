@@ -150,7 +150,6 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
     fontSize: 14,
-    fontFamily: "Avenir-Medium",
     letterSpacing: -0.22
   },
   signUp1: {
@@ -161,7 +160,6 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,1)",
     fontSize: 14,
     fontWeight: "bold",
-    fontFamily: "Avenir-Light",
     letterSpacing: -0.22
   },
   username: {
@@ -185,7 +183,7 @@ const styles = StyleSheet.create({
     top: 130.67,
     position: "absolute",
     backgroundColor: "transparent",
-    fontFamily: "AvenirNext-Italic",
+    fontStyle: "italic",
     fontSize: 90,
     color: "rgba(255,255,255,1)"
   },

@@ -110,7 +110,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     backgroundColor: "transparent",
     fontSize: 18,
-    fontFamily: "Avenir-Heavy",
     letterSpacing: 0.15,
     color: "rgba(255,255,255,1)"
   },

@@ -17,11 +17,9 @@ export default class Password extends Component {
             style={styles.icon}
             name={this.props.iconName ? this.props.iconName : "lock-outline"}
             type={
-              this.props.iconType ? (
-                this.props.iconType
-              ) : (
-                "MaterialCommunityIcons"
-              )
+              this.props.iconType
+                ? this.props.iconType
+                : "MaterialCommunityIcons"
             }
           />
           <TextInput
@@ -68,7 +66,6 @@ const styles = StyleSheet.create({
   textInput: {
     backgroundColor: "transparent",
     fontSize: 16,
-    fontFamily: "Avenir-Light",
     letterSpacing: -0.22,
     color: "rgba(255,255,255,1)",
     flex: 1,

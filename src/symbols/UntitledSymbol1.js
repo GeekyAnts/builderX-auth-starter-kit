@@ -91,7 +91,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     backgroundColor: "transparent",
     fontSize: 14,
-    fontFamily: "Avenir-Light",
     letterSpacing: -0.22,
     color: "rgba(0,0,0,1)"
   },
