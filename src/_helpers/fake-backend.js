@@ -64,7 +64,7 @@ function fakeFetch(url, opts) {
           resolve({ ok: true, json: () => responseJson });
         } else {
           // else return error
-          reject("Something went wrong! Try again");
+          reject("Username already exist");
         }
 
         return;

@@ -8,7 +8,8 @@ import {
   Text,
   StyleSheet,
   ImageBackground,
-  TouchableOpacity
+  TouchableOpacity,
+  Alert
 } from "react-native";
 
 import { connect } from "react-redux";
@@ -24,7 +25,9 @@ class Login extends Component {
     this.state = {
       username: "",
       password: "",
-      submitted: false
+      submitted: false,
+      usenameError: false,
+      passwordError: false
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -33,6 +36,21 @@ class Login extends Component {
 
   handleChange(e, name) {
     this.setState({ [name]: e });
+  }
+  validateValues(e, name) {
+    console.log(e, name, "blur");
+    switch (name) {
+      case "usename":
+        let usename = !/^[A-Za-z0-9 ]{2,20}$/.test(e);
+        this.setState({ usenameError: usename });
+        break;
+      case "password":
+        let password = !/^[a-zA-Z0-9._%+-~`@!? ]{4,20}$/.test(e);
+        this.setState({ passwordError: password });
+        break;
+      default:
+        break;
+    }
   }
 
   handleSubmit(e) {
@@ -43,10 +61,9 @@ class Login extends Component {
     const { dispatch } = this.props;
     if (username && password) {
       dispatch(userActions.login(username, password, this.props.navigation));
-    }
+    } else Alert.alert("Failed", "Enter Valid Username and Password");
   }
   render() {
-    const { loggingIn } = this.props;
     const { username, password, submitted } = this.state;
     return (
       <View style={styles.root}>
@@ -71,16 +88,18 @@ class Login extends Component {
         <View style={styles.login}>
           <Username
             style={styles.username}
-            // error={submitted && !username}
+            errorText={this.state.usenameError ? "Invalid Username" : ""}
             onChangeText={e => this.handleChange(e, "username")}
+            onBlur={() => this.validateValues(this.state.username, "usename")}
           />
           <Password
             style={styles.username2}
             textInput="Password"
             iconType="MaterialCommunityIcons"
             iconName="lock-outline"
-            // error={submitted && !password}
+            errorText={this.state.passwordError ? "Invalid Password" : ""}
             onChangeText={e => this.handleChange(e, "password")}
+            onBlur={() => this.validateValues(this.state.password, "password")}
           />
         </View>
         <Buttonlogin style={styles.buttonlogin} root={this.handleSubmit} />
@@ -98,12 +117,9 @@ class Login extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  const { loggingIn } = state.authentication;
-  return {
-    loggingIn
-  };
-}
+const mapStateToProps = state => ({
+  data: state
+});
 
 export default connect(mapStateToProps)(Login);
 
@@ -155,6 +171,7 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
     fontSize: 14,
+    fontWeight: "bold",
     fontFamily: "Avenir-Light",
     letterSpacing: -0.22
   },
@@ -162,12 +179,11 @@ const styles = StyleSheet.create({
     position: "absolute",
     // top: "-7.14%",
     left: "0%",
-    height: "35.71%",
+    height: "29.94%",
     width: "100%",
-    borderWidth: 0,
-    borderColor: "green",
-    borderBottomColor: "rgba(155,155,155,1)",
-    borderBottomWidth: 1
+    borderBottomColor: "#ccc",
+    borderBottomWidth: 1,
+    top: 0
   },
   buttonlogin: {
     position: "absolute",
@@ -186,13 +202,11 @@ const styles = StyleSheet.create({
   },
   username2: {
     left: "0%",
-    top: "50%",
+    top: "49.7%",
+    height: "29.94%",
     width: "100%",
-    height: 51,
     position: "absolute",
-    borderWidth: 0,
-    borderColor: "green",
-    borderBottomColor: "rgba(155,155,155,1)",
+    borderBottomColor: "#ccc",
     borderBottomWidth: 1
   }
 });

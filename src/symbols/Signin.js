@@ -11,6 +11,7 @@ export default class Signin extends Component {
     return (
       <TouchableOpacity
         style={[styles.root, this.props.style]}
+        disabled={this.props.disabled ? this.props.disabled : false}
         onPress={this.props.root ? this.props.root : null}
       >
         <Text style={styles.signIn1}>Sign Up</Text>

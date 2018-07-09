@@ -22,7 +22,11 @@ class SignUp extends Component {
       username: "",
       email: "",
       password: "",
-      submitted: false
+      submitted: false,
+      usenameError: "",
+      emailError: "",
+      passwordError: "",
+      inValid: true
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -31,6 +35,32 @@ class SignUp extends Component {
 
   handleChange(e, name) {
     this.setState({ [name]: e });
+  }
+
+  validateValues(e, name) {
+    switch (name) {
+      case "usename":
+        let usename = !/^[A-Za-z0-9 ]{2,20}$/.test(e);
+        this.setState({ usenameError: usename });
+        break;
+      case "email":
+        let email = !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(e);
+        this.setState({ emailError: email });
+        break;
+      case "password":
+        let password = !/^[a-zA-Z0-9._%+-~`@!? ]{4,20}$/.test(e);
+        this.setState({ passwordError: password });
+        break;
+      default:
+        break;
+    }
+    if (
+      !this.state.usenameError &&
+      !this.state.emailError &&
+      !this.state.passwordError
+    ) {
+      this.setState({ inValid: false });
+    }
   }
 
   handleSubmit(e) {
@@ -46,7 +76,6 @@ class SignUp extends Component {
     }
   }
   render() {
-    const { loggingIn } = this.props;
     const { username, password, submitted } = this.state;
     return (
       <View style={styles.root}>
@@ -73,11 +102,6 @@ class SignUp extends Component {
           <Icon style={styles.icon2} name="md-person-add" type="Ionicons" />
         </View>
         <View style={styles.header}>
-          <Icon
-            style={styles.icon3}
-            name="menu"
-            type="MaterialCommunityIcons"
-          />
           <View
             style={{
               top: 0,
@@ -92,11 +116,6 @@ class SignUp extends Component {
           >
             <Text style={styles.planner}>Create Account</Text>
           </View>
-          <Icon
-            style={styles.icon4}
-            name="check"
-            type="MaterialCommunityIcons"
-          />
         </View>
         <View style={styles.rect7}>
           <UntitledSymbol
@@ -104,24 +123,34 @@ class SignUp extends Component {
             textInput="Username"
             style={styles.username}
             iconType="MaterialCommunityIcons"
+            errorText={this.state.usenameError ? "Invalid Username" : ""}
             onChangeText={e => this.handleChange(e, "username")}
+            onBlur={() => this.validateValues(this.state.username, "usename")}
           />
           <UntitledSymbol
             style={styles.email}
             iconName="email-outline"
             textInput="Email"
             iconType="MaterialCommunityIcons"
+            errorText={this.state.emailError ? "Invalid Email" : ""}
             onChangeText={e => this.handleChange(e, "email")}
+            onBlur={() => this.validateValues(this.state.email, "email")}
           />
           <UntitledSymbol
             style={styles.password}
             iconName="lock-outline"
             textInput="Password"
             secureTextEntry={true}
+            errorText={this.state.passwordError ? "Invalid Password" : ""}
             onChangeText={e => this.handleChange(e, "password")}
+            onBlur={() => this.validateValues(this.state.password, "password")}
           />
         </View>
-        <Signin style={styles.signin} root={this.handleSubmit} />
+        <Signin
+          style={styles.signin}
+          disabled={this.state.inValid}
+          root={this.handleSubmit}
+        />
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
@@ -134,13 +163,10 @@ class SignUp extends Component {
     );
   }
 }
-function mapStateToProps(state) {
-  const { loggingIn } = state.authentication;
-  return {
-    loggingIn
-  };
-}
 
+const mapStateToProps = state => ({
+  data: state
+});
 export default connect(mapStateToProps)(SignUp);
 
 const styles = StyleSheet.create({
@@ -185,8 +211,6 @@ const styles = StyleSheet.create({
     right: 54.04,
     backgroundColor: "rgba(179,79,197,1)",
     opacity: 1,
-    borderWidth: 0,
-    borderColor: "green",
     borderRadius: 50,
     bottom: 114.17
   },
@@ -235,10 +259,10 @@ const styles = StyleSheet.create({
     right: 0,
     height: 51,
     position: "absolute",
-    top: "72.13%"
+    top: "74.13%"
   },
   email: {
-    top: "35%",
+    top: "37%",
     left: 0,
     right: 0,
     height: 51,
@@ -259,6 +283,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 16,
     letterSpacing: 0,
-    margin: 0
+    margin: 0,
+    fontWeight: "bold",
+    color: "#999"
   }
 });

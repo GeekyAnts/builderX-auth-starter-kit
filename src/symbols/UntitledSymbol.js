@@ -14,30 +14,56 @@ export default class UntitledSymbol extends Component {
   render() {
     return (
       <View style={[styles.root, this.props.style]}>
-        <Icon
-          style={styles.icon}
-          name={this.props.iconName ? this.props.iconName : "mail-outline"}
-          type={this.props.iconType ? this.props.iconType : "MaterialIcons"}
-        />
-        <TextInput
-          style={styles.textInput}
-          placeholder={this.props.textInput ? this.props.textInput : "Username"}
-          secureTextEntry={
-            this.props.secureTextEntry ? this.props.secureTextEntry : false
-          }
-          onChangeText={this.props.onChangeText}
-        />
+        <View style={styles.rect1}>
+          <Icon
+            style={styles.icon}
+            name={this.props.iconName ? this.props.iconName : "mail-outline"}
+            type={this.props.iconType ? this.props.iconType : "MaterialIcons"}
+          />
+          <TextInput
+            style={styles.textInput}
+            placeholder={
+              this.props.textInput ? this.props.textInput : "Username"
+            }
+            secureTextEntry={
+              this.props.secureTextEntry ? this.props.secureTextEntry : false
+            }
+            onChangeText={this.props.onChangeText}
+            onBlur={this.props.onBlur}
+            onEndEditing={this.props.onEndEditing}
+          />
+        </View>
+        <Text
+          style={[
+            styles.textNaN,
+            {
+              color: this.props.errorText
+                ? "rgba(208,2,27,1)"
+                : "rgba(155,155,155,0)"
+            }
+          ]}
+        >
+          {this.props.errorText}
+        </Text>
       </View>
     );
   }
 }
 const styles = StyleSheet.create({
   root: {
-    flexDirection: "row",
-    borderWidth: 0,
-    borderColor: "green",
-    borderBottomColor: "rgba(155,155,155,1)",
+    borderBottomColor: "#ccc",
     borderBottomWidth: 1
+  },
+  input: {
+    flexDirection: "row"
+  },
+  rect1: {
+    flexDirection: "row"
+  },
+  textNaN: {
+    alignSelf: "flex-end",
+    paddingTop: 4,
+    paddingRight: 8
   },
 
   textInput: {

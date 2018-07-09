@@ -66,7 +66,7 @@ export default class Untitled3 extends Component {
             }}
             pointerEvents="box-none" /*center*/
           >
-            <Text style={styles.text2}>Matching Profile</Text>
+            <Text style={styles.text2}>Home</Text>
           </View>
         </View>
       </View>

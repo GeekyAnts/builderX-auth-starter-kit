@@ -11,6 +11,7 @@ export default class Buttonlogin extends Component {
     return (
       <TouchableOpacity
         style={[styles.root, this.props.style]}
+        disabled={this.props.disabled}
         onPress={this.props.root ? this.props.root : null}
       >
         <Text style={styles.signIn}>Sign In</Text>

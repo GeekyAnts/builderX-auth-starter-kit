@@ -78,7 +78,6 @@ function signUp(username, password, email) {
       //   storeData(user);
       // }
       appUsers.push(user);
-      console.log(user, appUsers, "signup shivtest");
       return user;
     });
 }

@@ -1,3 +1,4 @@
+import { Alert } from "react-native";
 import { userConstants } from "../_constants";
 import { userService } from "../_services";
 import { alertActions } from "./";
@@ -14,13 +15,17 @@ export const userActions = {
 function signUp(username, password, email, navigation) {
   return dispatch => {
     dispatch(request({ username }));
+    dispatch(alertActions.clear());
 
     userService.signUp(username, password, email).then(
       user => {
+        Alert.alert("New User", "Added " + user.username + " Successfully");
         dispatch(success(user));
+        dispatch(alertActions.success("New user added"));
         navigation.push("Login");
       },
       error => {
+        Alert.alert("Failed", error);
         dispatch(failure(error));
         dispatch(alertActions.error(error));
       }
@@ -41,13 +46,16 @@ function signUp(username, password, email, navigation) {
 function login(username, password, navigation) {
   return dispatch => {
     dispatch(request({ username }));
+    dispatch(alertActions.clear());
 
     userService.login(username, password).then(
       user => {
         dispatch(success(user));
+        dispatch(alertActions.success("Logged In Successfully"));
         navigation.push("Home");
       },
       error => {
+        Alert.alert("Failed", error);
         dispatch(failure(error));
         dispatch(alertActions.error(error));
       }
@@ -99,7 +107,7 @@ function getFeeds() {
         return { type: userConstants.GETALL_FEED, feed };
       },
       error => {
-        dispatch(alertActions.error(error));
+        // dispatch(alertActions.error(error));
       }
     );
   };
